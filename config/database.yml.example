@@ -6,12 +6,12 @@ default: &default
 
 development:
   <<: *default
-  database: ffk-backend_development
+  database: orderlink_development
   username: yourpgusername
   password:
 
 test:
   <<: *default
-  database: ffk-backend_test
+  database: orderlink_test
   username: yourpgusername
   password:

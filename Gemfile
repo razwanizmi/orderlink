@@ -1,46 +1,48 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '2.4.1'
 
+gem 'jquery-rails'
 gem 'rails'
 gem 'sass-rails'
-gem 'uglifier'
-gem 'jquery-rails'
 gem 'turbolinks'
+gem 'uglifier'
 
 group :development do
-  gem 'spring'
   gem 'letter_opener'
+  gem 'spring'
 end
 
 group :development, :test do
   gem 'pry'
-  gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'pry-rails'
 
-  gem 'reek'
   gem 'rails_best_practices'
+  gem 'reek'
   gem 'rubocop'
 
-  gem 'rspec-rails'
+  gem 'bullet'
   gem 'capybara'
-  gem 'factory_girl_rails'
+  gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'dotenv-rails'
-  gem 'capybara-webkit'
+  gem 'factory_girl_rails'
   gem 'listen'
-  gem 'bullet'
-  gem "zero_downtime_migrations"
+  gem 'rspec-rails'
+  gem 'zero_downtime_migrations'
 end
 
 group :test do
   gem 'shoulda-matchers'
 end
 
-gem 'jbuilder'
-gem 'haml-rails'
-gem 'pg'
 gem 'envied'
+gem 'haml-rails'
+gem 'jbuilder'
+gem 'pg'
 gem 'puma'
 
 gem 'devise'
