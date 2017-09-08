@@ -3,5 +3,5 @@
 json.key_format! camelize: :lower
 
 json.array! @products do |product|
-  json.call(product, :id, :name, :image_url)
+  json.call(product, :id, :name, :image_url, :price)
 end
