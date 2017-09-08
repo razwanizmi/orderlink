@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-OrderProduct.delete_all
 Order.delete_all
-ActiveRecord::Base.connection.reset_pk_sequence!('order_products')
 ActiveRecord::Base.connection.reset_pk_sequence!('orders')
 
 order = Order.create!(
