@@ -8,3 +8,4 @@
 .env
 .rspec
 config/database.yml
+.DS_Store
