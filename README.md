@@ -1,24 +1,96 @@
-# README
+# OrderLink
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Products
 
-Things you may want to cover:
+### Index
 
-* Ruby version
+Endpoint: `GET https://orderlink.herokuapp.com/api/products`
 
-* System dependencies
+*Request*
+Content-Type: "application/json"
+Body: empty
 
-* Configuration
+*Response*
+Status: 200
+Body:
+```
+[
+  {
+    "id": <integer>,
+    "name": <string>,
+    "details": <string>,
+    "price": <decimals>
+  }
+  ...
+]
+```
 
-* Database creation
+### Show
 
-* Database initialization
+Endpoint: `GET https://orderlink.herokuapp.com/api/products/:id`
 
-* How to run the test suite
+*Request*
+Content-Type: "application/json"
+Body: empty
 
-* Services (job queues, cache servers, search engines, etc.)
+*Response*
+Status: 204
+Body:
+```
+{
+  "id": <integer>,
+  "name": <string>,
+  "details": <string>,
+  "price": <decimals>
+}
+```
 
-* Deployment instructions
+### Create
 
-* ...
+Endpoint: `POST https://orderlink.herokuapp.com/api/products`
+
+*Request*
+Content-Type: "application/json"
+Body:
+```
+{
+  "name": <string>,
+  "details": <string>,
+  "price": <decimals>
+}
+```
+
+*Response*
+Status: 201
+Body: empty
+
+### Update
+
+Endpoint: `PUT https://orderlink.herokuapp.com/api/products/:id`
+
+*Request*
+Content-Type: "application/json"
+Body:
+```
+{
+  "name": <string>,
+  "details": <string>,
+  "price": <decimals>
+}
+```
+
+*Response*
+Status: 204
+Body: empty
+
+### Destroy
+
+Endpoint: `DELETE https://orderlink.herokuapp.com/api/products/:id`
+
+*Request*
+Content-Type: "application/json"
+Body: empty
+
+*Response*
+Status: 204
+Body: empty
