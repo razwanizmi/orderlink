@@ -4,7 +4,13 @@ source 'https://rubygems.org'
 
 ruby '2.4.1'
 
+gem 'devise'
+gem 'envied'
+gem 'haml-rails'
+gem 'jbuilder'
 gem 'jquery-rails'
+gem 'pg'
+gem 'puma'
 gem 'rails'
 gem 'sass-rails'
 gem 'turbolinks'
@@ -38,11 +44,3 @@ end
 group :test do
   gem 'shoulda-matchers'
 end
-
-gem 'envied'
-gem 'haml-rails'
-gem 'jbuilder'
-gem 'pg'
-gem 'puma'
-
-gem 'devise'
