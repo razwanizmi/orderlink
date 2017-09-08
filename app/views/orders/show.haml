@@ -52,8 +52,9 @@
             = f.file_field :payment_proof, class: 'form-control'
             .text-center.mt-3
               = f.submit 'Submit', class: 'btn btn-default btn-upload'
+
 - unless @order.payment_proof?
-  .payment.pb-4
+  .payment.pb-3
     - if @order.paid?
       .container
         %h4.text-center.py-3 PAYMENT COMPLETED AND AWAITING DELIVERY
@@ -67,6 +68,6 @@
 
 = content_for :extra_javascript do
   :javascript
-    if (gon && gon.client_token) {
+    if (gon && gon.client_token && document.getElementById('dropin')) {
       braintree.setup(gon.client_token, 'dropin', { container: 'dropin' });
     }
