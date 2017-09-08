@@ -6,6 +6,8 @@ class Order < ApplicationRecord
 
   validates :link, uniqueness: true
 
+  mount_uploader :payment_proof, PictureUploader
+
   before_create :set_link
   after_touch :update_price
 

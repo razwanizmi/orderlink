@@ -1,8 +1,4 @@
-%nav.navbar.navbar-light.bg-yellow.mb-3
-  .container
-    .navbar-brand ORDER LINK
-
-.container
+.container.mt-3
   %h4.text-center ORDER DETAILS
   .row.mt-3
     .col-4
@@ -41,11 +37,21 @@
       .col-4
         %p.my-0
           %strong= number_to_currency(@order.price, unit: 'RM')
+
 .upload.mt-3.pb-3
+  - if @order.payment_proof?
+    .container
+      %h4.text-center.py-3 PROOF OF PAYMENT AWAITING SELLER CONFIRMATION
+      = image_tag(@order.payment_proof_url, class: 'img-fluid')
+  - else
+    .container
+      = form_for(@order) do |f|
+        %h4.text-center.py-3 UPLOAD PROOF OF PAYMENT
+        .form-group
+          = f.file_field :payment_proof, class: 'form-control'
+          .text-center.mt-3
+            = f.submit 'Submit', class: 'btn btn-default btn-upload'
+
+.payment.pb-3
   .container
-    = form_for(@order) do |f|
-      %h4.text-center.py-3 UPLOAD PROOF OF PAYMENT
-      .form-group
-        = f.file_field :payment_proof, class: 'form-control'
-        .text-center.mt-3
-          = f.submit 'Submit', class: 'btn btn-default btn-upload'
+    %h4.text-center.py-3 OR PAY HERE

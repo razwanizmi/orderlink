@@ -8,8 +8,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-  #flash
-    - flash.each do |name, msg|
-      = content_tag :div, msg,  :class => "alert alert-#{name}"
+    %nav.navbar.navbar-light.bg-yellow
+      .container
+        .navbar-brand ORDER LINK
+    #flash
+      - flash.each do |name, msg|
+        = content_tag :div, msg,  :class => "alert alert-#{name}"
 
-    = yield
+      = yield
