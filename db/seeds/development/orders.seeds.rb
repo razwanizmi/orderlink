@@ -11,8 +11,8 @@ order = Order.create!(
   state: 'Selangor',
   postcode: '40100',
   phone_number: '0123456789',
-  paid: true,
-  delivered: true
+  paid: false,
+  delivered: false
 )
 
 Product.all.each do |product|
