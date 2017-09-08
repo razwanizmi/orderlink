@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Product.delete_all
+Product.destroy_all
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
 
 Product.create!(
