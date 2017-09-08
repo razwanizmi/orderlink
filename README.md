@@ -6,11 +6,11 @@
 
 Endpoint: `GET https://orderlink.herokuapp.com/api/products`
 
-*Request*
+**Request**
 Content-Type: "application/json"
 Body: empty
 
-*Response*
+**Response**
 Status: 200
 Body:
 ```
@@ -29,11 +29,11 @@ Body:
 
 Endpoint: `GET https://orderlink.herokuapp.com/api/products/:id`
 
-*Request*
+**Request**
 Content-Type: "application/json"
 Body: empty
 
-*Response*
+**Response**
 Status: 204
 Body:
 ```
@@ -49,7 +49,7 @@ Body:
 
 Endpoint: `POST https://orderlink.herokuapp.com/api/products`
 
-*Request*
+**Request**
 Content-Type: "application/json"
 Body:
 ```
@@ -60,7 +60,7 @@ Body:
 }
 ```
 
-*Response*
+**Response**
 Status: 201
 Body: empty
 
@@ -68,7 +68,7 @@ Body: empty
 
 Endpoint: `PUT https://orderlink.herokuapp.com/api/products/:id`
 
-*Request*
+**Request**
 Content-Type: "application/json"
 Body:
 ```
@@ -79,7 +79,7 @@ Body:
 }
 ```
 
-*Response*
+**Response**
 Status: 204
 Body: empty
 
@@ -87,10 +87,10 @@ Body: empty
 
 Endpoint: `DELETE https://orderlink.herokuapp.com/api/products/:id`
 
-*Request*
+**Request**
 Content-Type: "application/json"
 Body: empty
 
-*Response*
+**Response**
 Status: 204
 Body: empty
