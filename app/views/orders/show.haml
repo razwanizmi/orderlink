@@ -38,20 +38,35 @@
         %p.my-0
           %strong= number_to_currency(@order.price, unit: 'RM')
 
-.upload.mt-3.pb-3
-  - if @order.payment_proof?
-    .container
-      %h4.text-center.py-3 PROOF OF PAYMENT AWAITING SELLER CONFIRMATION
-      = image_tag(@order.payment_proof_url, class: 'img-fluid')
-  - else
-    .container
-      = form_for(@order) do |f|
-        %h4.text-center.py-3 UPLOAD PROOF OF PAYMENT
-        .form-group
-          = f.file_field :payment_proof, class: 'form-control'
+- unless @order.paid?
+  .upload.mt-3.pb-3
+    - if @order.payment_proof?
+      .container
+        %h4.text-center.py-3 PROOF OF PAYMENT AWAITING SELLER CONFIRMATION
+        = image_tag(@order.payment_proof_url, class: 'img-fluid')
+    - else
+      .container
+        = form_for(@order) do |f|
+          %h4.text-center.py-3 UPLOAD PROOF OF PAYMENT
+          .form-group
+            = f.file_field :payment_proof, class: 'form-control'
+            .text-center.mt-3
+              = f.submit 'Submit', class: 'btn btn-default btn-upload'
+- unless @order.payment_proof?
+  .payment.pb-3
+    - if @order.paid?
+      .container
+        %h4.text-center.py-3 PAYMENT COMPLETED AND AWAITING DELIVERY
+    - else
+      .container
+        %h4.text-center.py-3 OR PAY HERE
+        = form_for(@order, url: bill_order_path(@order), method: :put) do |f|
+          #dropin
           .text-center.mt-3
             = f.submit 'Submit', class: 'btn btn-default btn-upload'
 
-.payment.pb-3
-  .container
-    %h4.text-center.py-3 OR PAY HERE
+= content_for :extra_javascript do
+  :javascript
+    if (gon && gon.client_token) {
+      braintree.setup(gon.client_token, 'dropin', { container: 'dropin' });
+    }

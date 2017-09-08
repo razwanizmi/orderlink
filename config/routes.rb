@@ -6,6 +6,10 @@ Rails.application.routes.draw do
     resources :orders, only: [:index]
   end
 
-  resources :orders, only: [:update]
+  resources :orders, only: [:update] do
+    member do
+      put :bill
+    end
+  end
   get '/:link', to: 'orders#show'
 end
