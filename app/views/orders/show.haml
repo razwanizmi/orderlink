@@ -39,7 +39,7 @@
           %strong= number_to_currency(@order.price, unit: 'RM')
 
 - unless @order.paid?
-  .upload.mt-3.pb-3
+  .upload.mt-3.pb-2
     - if @order.payment_proof?
       .container
         %h4.text-center.py-3 PROOF OF PAYMENT AWAITING SELLER CONFIRMATION
@@ -53,7 +53,7 @@
             .text-center.mt-3
               = f.submit 'Submit', class: 'btn btn-default btn-upload'
 - unless @order.payment_proof?
-  .payment.pb-3
+  .payment.pb-4
     - if @order.paid?
       .container
         %h4.text-center.py-3 PAYMENT COMPLETED AND AWAITING DELIVERY

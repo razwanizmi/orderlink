@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   namespace :api do
     resources :products, only: [:index]
-    resources :orders, only: [:index]
+    resources :orders, only: [:index, :create]
   end
 
   resources :orders, only: [:update] do

@@ -14,7 +14,7 @@ json.array! @orders do |order|
   json.phone_number order.phone_number
   json.price order.price
   json.paid order.paid
-  json.payment_proof order.payment_proof
+  json.payment_proof order.payment_proof&.url
   json.delivered order.delivered
 
   json.products do

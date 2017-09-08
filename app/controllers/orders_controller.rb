@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     if result.success?
       order.update(paid: true)
       flash[:success] =
-        'Transaction successful and is not pending delivery from the seller.'
+        'Transaction successful and is now pending delivery from the seller.'
       redirect_to "/#{order.link}"
     else
       flash.now[:alert] =

@@ -11,6 +11,8 @@ class Order < ApplicationRecord
   before_create :set_link
   after_touch :update_price
 
+  accepts_nested_attributes_for :order_products
+
   private
 
   def update_price
