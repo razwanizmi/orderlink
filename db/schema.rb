@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20170908042608) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.string "details"
     t.float "price"
     t.string "image_url"
     t.datetime "created_at", null: false
