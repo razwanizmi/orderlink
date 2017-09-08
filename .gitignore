@@ -9,3 +9,4 @@
 .rspec
 config/database.yml
 .DS_Store
+/config/application.yml
