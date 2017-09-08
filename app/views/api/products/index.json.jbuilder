@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 json.key_format! camelize: :lower
 
 json.array! @products do |product|
-  json.(product, :id, :name, :image_url)
+  json.call(product, :id, :name, :image_url)
 end
