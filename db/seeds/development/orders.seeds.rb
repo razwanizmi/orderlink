@@ -10,6 +10,7 @@ order = Order.create!(
   city: 'Shah Alam',
   state: 'Selangor',
   postcode: '40100',
+  phone_number: '0123456789',
   paid: true,
   delivered: true
 )

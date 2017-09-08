@@ -8,7 +8,9 @@ class CreateOrders < ActiveRecord::Migration[5.1]
       t.string :city
       t.string :state
       t.string :postcode
+      t.string :phone_number
       t.float :price
+      t.string :payment_proof
       t.boolean :paid, default: false
       t.boolean :delivered, default: false
 

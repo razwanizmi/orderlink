@@ -1,22 +1,51 @@
-%nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
-  %button.navbar-toggler.navbar-toggler-right{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNav", "data-toggle" => "collapse", :type => "button"}
-    %span.navbar-toggler-icon
-  %a.navbar-brand{:href => "#"} Navbar
-  #navbarNav.collapse.navbar-collapse
-    %ul.navbar-nav
-      %li.nav-item.active
-        %a.nav-link{:href => "#"}
-          Home
-          %span.sr-only (current)
-      %li.nav-item
-        %a.nav-link{:href => "#"} Features
-      %li.nav-item
-        %a.nav-link{:href => "#"} Pricing
-      %li.nav-item
-        %a.nav-link.disabled{:href => "#"} Disabled
-
+%nav.navbar.navbar-light.bg-yellow.mb-3
+  .container
+    .navbar-brand ORDER LINK
 
 .container
-  = @order.name
-  = @order.address_one
-  = @order.address_two
+  %h4.text-center ORDER DETAILS
+  .row.mt-3
+    .col-4
+      Name:
+    .col-8
+      = @order.name
+  .row
+    .col-4
+      Address:
+    .col-8
+      #{@order.address_one},
+      #{@order.address_two if @order.address_two?}
+      #{@order.postcode}
+      #{@order.city},
+      #{@order.state}
+  .row
+    .col-4
+      Phone No:
+    .col-8
+      = @order.phone_number
+  - @order.order_products.any? && @order.order_products.each do |op|
+    %hr
+    .row.my-3
+      .col-8
+        %p.my-0= op.product.name
+        %p.my-0 #{op.quantity} #{op.quantity == 1 ? 'unit' : 'units' }
+        %p.my-0 Per unit: #{number_to_currency(op.product.price, unit: 'RM')}
+      .col-4
+        = image_tag(op.product.image_url, class: 'img-fluid rounded')
+    .text-right Subtotal: #{number_to_currency(op.line_price, unit: 'RM')}
+  %hr
+    .row.my-3
+      .col-8
+        %p.my-0
+          %strong GRAND TOTAL
+      .col-4
+        %p.my-0
+          %strong= number_to_currency(@order.price, unit: 'RM')
+.upload.mt-3.pb-3
+  .container
+    = form_for(@order) do |f|
+      %h4.text-center.py-3 UPLOAD PROOF OF PAYMENT
+      .form-group
+        = f.file_field :payment_proof, class: 'form-control'
+        .text-center.mt-3
+          = f.submit 'Submit', class: 'btn btn-default btn-upload'

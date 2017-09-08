@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :products, only: [:index]
   end
 
+  resources :orders, only: [:update]
   get '/:link', to: 'orders#show'
 end
